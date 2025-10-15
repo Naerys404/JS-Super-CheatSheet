@@ -37,6 +37,40 @@
           </div>
       </nav>
       <h1 class="text-3xl text-center my-5 font-bold">Exercices sur les variables</h1>
+    <script>
+        let declaration;
+
+        declaration = "affectee";
+        let number = 1;
+        let string = "Hi there";
+        let boolean = true;
+        let array = [1,"Bonjour",3,boolean,5];
+        let object = {name:"John", lastname:"Snow"};
+
+        let maFonctionHello = () => {
+        console.log("Hello "+ object.name + " " + object.lastname);
+        }
+
+        maFonctionHello();
+
+        console.log(number);
+        console.log(string);
+        console.log(boolean);
+        console.log(array);
+        console.log(object);
+
+        console.log(array[2]);
+        console.log(object.name);
+
+        console.log("tableau associatif")
+        console.log(object['name']);
+
+        console.log("--- TYPE OF ----")
+        console.log(typeof number);
+        console.log(typeof array);
+        console.log(typeof object);
+
+    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
