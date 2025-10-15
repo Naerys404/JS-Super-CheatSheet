@@ -1,4 +1,5 @@
-<nav class="navbar bg-base-100 shadow-md">
+  let navbar =`
+    <nav class="navbar bg-base-100 shadow-md">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl" href="/">JS CheatSheet</a>
   </div>
@@ -12,10 +13,12 @@
             <li><a href="/src/pages/lessons/variables.html">Variables</a></li>
             <li><a href="/src/pages/lessons/numbers.html">Nombres et calculs</a></li>
             <li><a href="/src/pages/lessons/strings.html">Strings</a></li>
+            <li><a href="/src/pages/lessons/arrays.html">Tableaux</a></li>
+            <li><a href="/src/pages/lessons/objects.html">Objets</a></li>
+            <li><a href="/src/pages/lessons/functions.html">Fonctions</a></li>
           </ul>
         </details>
       </li>
-      
       <li>
         <details>
           <summary>Exercices</summary>
@@ -26,7 +29,10 @@
         </details>
       </li>
       <li><a href="#">TP</a></li>
-      <li><a href="#">Contact</a></li>
     </ul>
   </div>
 </nav>
+`;
+
+const navContainer = document.querySelector('.navbar-container');
+navContainer.innerHTML += navbar;

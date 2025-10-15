@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les Objets en JavaScript | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+           <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les Objets en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        Les objets sont des collections de paires clé-valeur. Ils permettent de structurer des données
+                        complexes et de les organiser de manière logique.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 Pourquoi utiliser des objets ?</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Stocker des données liées sous une seule entité (ex: les informations d'un
+                                    utilisateur).</li>
+                                <li>Modéliser des entités du monde réel.</li>
+                                <li>Créer des structures de données complexes.</li>
+                                <li>Organiser le code de manière plus sémantique et lisible.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Déclaration et accès aux propriétés</h2>
+                            <p class="mb-4">
+                                Un objet est défini par des accolades `{}` contenant des paires `clé: valeur`. Les clés
+                                sont des chaînes de caractères (ou des symboles) et les valeurs peuvent être de
+                                n'importe quel type.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+const utilisateur = {
+  nom: 'Alice',
+  age: 30,
+  estConnecte: true,
+  hobbies: ['lecture', 'voyage']
+};
+
+// Accès par notation point
+console.log(utilisateur.nom);      // 'Alice'
+
+// Accès par notation crochets (utile pour les clés dynamiques)
+console.log(utilisateur['age']);   // 30
+
+// Ajouter ou modifier une propriété
+utilisateur.ville = 'Paris';
+utilisateur.age = 31;
+console.log(utilisateur);
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 Quelques méthodes d'objet utiles</h2>
+                            <p class="mb-4">
+                                Le constructeur `Object` fournit plusieurs méthodes statiques pour manipuler les objets.
+                            </p>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>Object.keys()</code></h3>
+                                    <p>Renvoie un tableau contenant les noms des propriétés de l'objet.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+const utilisateur = { nom: 'Bob', age: 45 };
+const cles = Object.keys(utilisateur);
+console.log(cles); // ['nom', 'age']
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>Object.values()</code></h3>
+                                    <p>Renvoie un tableau contenant les valeurs des propriétés de l'objet.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+const utilisateur = { nom: 'Bob', age: 45 };
+const valeurs = Object.values(utilisateur);
+console.log(valeurs); // ['Bob', 45]
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>Object.entries()</code></h3>
+                                    <p>Renvoie un tableau de paires `[clé, valeur]` pour chaque propriété.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+const utilisateur = { nom: 'Bob', age: 45 };
+const paires = Object.entries(utilisateur);
+console.log(paires); // [['nom', 'Bob'], ['age', 45]]
+                    </code>
+                  </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Utilisez des noms de clés clairs et descriptifs.</li>
+                                <li>Préférez la notation point (`objet.propriete`) lorsque c'est possible pour plus de
+                                    lisibilité.</li>
+                                <li>Pour parcourir les propriétés d'un objet, vous pouvez utiliser une boucle `for...in`
+                                    ou itérer sur les tableaux renvoyés par `Object.keys()`, `Object.values()` ou
+                                    `Object.entries()`.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

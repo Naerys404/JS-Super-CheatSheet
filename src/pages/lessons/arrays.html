@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Les tableaux en JavaScript | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+  <div class="drawer min-h-screen">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+      
+      <div class="navbar-container"></div>
+
+      <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+        
+        <section class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">Les tableaux en JavaScript</h1>
+          <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+            Les tableaux (ou `Arrays`) sont des structures de données fondamentales en JavaScript. Ils vous permettent de stocker et d'organiser des collections d'éléments.
+          </p>
+        </section>
+
+        <section class="mb-12">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">👉 Créer et accéder à un tableau</h2>
+              <p class="mb-4">
+                Un tableau peut contenir différents types de données. L'accès aux éléments se fait par leur index, qui commence toujours à 0.
+              </p>
+              <pre class="mockup-code text-left">
+                <code>
+const fruits = ['pomme', 'banane', 'orange'];
+console.log(fruits[0]); // 'pomme'
+
+fruits[1] = 'mangue'; // modifier un élément
+console.log(fruits); // ['pomme', 'mangue', 'orange']
+
+console.log(fruits.length); // 3 (pour la taille du tableau)
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <div class="card bg-primary text-primary-content shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">⚡ Méthodes de modification de base</h2>
+              <p class="mb-4">
+                Ces méthodes modifient le tableau directement (`in-place`).
+              </p>
+              <ul class="list-disc list-inside space-y-2 mt-3">
+                <li><span class="badge badge-primary">`push()`</span> : ajoute un ou plusieurs éléments à la fin.</li>
+                <li><span class="badge badge-secondary">`pop()`</span> : supprime le dernier élément.</li>
+                <li><span class="badge badge-accent">`shift()`</span> : supprime le premier élément.</li>
+                <li><span class="badge badge-info">`unshift()`</span> : ajoute un ou plusieurs éléments au début.</li>
+              </ul>
+              <pre class="mockup-code text-left">
+                <code>
+const legumes = ['carotte', 'brocoli'];
+legumes.push('poireau'); // ['carotte', 'brocoli', 'poireau']
+const dernier = legumes.pop(); // 'poireau', legumes est ['carotte', 'brocoli']
+                </code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-12">
+          <div class="card bg-base-100 shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">🌱 Méthodes d'itération et de transformation</h2>
+              <p class="mb-4">
+                Ces méthodes sont très puissantes pour manipuler les données sans modifier le tableau d'origine (elles renvoient un nouveau tableau).
+              </p>
+              <div class="space-y-6">
+                <div>
+                  <h3 class="font-bold text-lg mb-2"><code>map()</code></h3>
+                  <p>Crée un nouveau tableau en appliquant une fonction à chaque élément.</p>
+                  <pre class="mockup-code text-left">
+                    <code>
+const nombres = [1, 2, 3];
+const doubles = nombres.map(nombre => nombre * 2);
+console.log(doubles); // [2, 4, 6]
+                    </code>
+                  </pre>
+                </div>
+                
+                <div>
+                  <h3 class="font-bold text-lg mb-2"><code>filter()</code></h3>
+                  <p>Crée un nouveau tableau avec tous les éléments qui passent un test.</p>
+                  <pre class="mockup-code text-left">
+                    <code>
+const ages = [12, 18, 25, 6];
+const majeurs = ages.filter(age => age >= 18);
+console.log(majeurs); // [18, 25]
+                    </code>
+                  </pre>
+                </div>
+
+                <div>
+                  <h3 class="font-bold text-lg mb-2"><code>reduce()</code></h3>
+                  <p>Exécute une fonction de 'réduction' sur chaque élément, retournant une seule valeur.</p>
+                  <pre class="mockup-code text-left">
+                    <code>
+const prix = [10, 20, 30];
+const total = prix.reduce((acc, current) => acc + current, 0);
+console.log(total); // 60
+                    </code>
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div class="card bg-neutral text-neutral-content shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+              <ul class="list-disc list-inside space-y-2 mt-3">
+                <li>Utilisez des noms de variables clairs pour vos tableaux (au pluriel).</li>
+                <li>Préférez les méthodes comme <code>map()</code> et <code>filter()</code> aux boucles <code>for</code> classiques pour plus de lisibilité.</li>
+                <li>Utilisez <code>const</code> pour déclarer un tableau si sa référence ne doit pas changer.</li>
+                <li>Ne mélangez pas les types de données dans un même tableau si ce n'est pas nécessaire.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <div id="footer-container"></div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

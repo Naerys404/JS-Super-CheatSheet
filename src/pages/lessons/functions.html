@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les fonctions en JavaScript | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les fonctions en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        Les fonctions sont des blocs de code réutilisables qui peuvent être appelés pour effectuer une
+                        tâche spécifique. Elles sont au cœur de la programmation en JavaScript.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 Déclaration et exécution</h2>
+                            <p class="mb-4">
+                                Une fonction se déclare avec le mot-clé `function`, suivi d'un nom, de parenthèses `()`
+                                et d'accolades `{}`.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+// Déclaration de la fonction
+function direBonjour() {
+  console.log('Bonjour tout le monde !');
+}
+
+// Appel de la fonction
+direBonjour(); // Affiche 'Bonjour tout le monde !'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Paramètres et Valeur de retour (`return`)</h2>
+                            <p class="mb-4">
+                                Les <span class="badge badge-primary">paramètres</span> sont des variables locales à la
+                                fonction qui reçoivent des valeurs lors de l'appel. Le mot-clé <span
+                                    class="badge badge-accent">`return`</span> permet de renvoyer une valeur.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+function addition(a, b) {
+  return a + b;
+}
+
+const resultat = addition(5, 3);
+console.log(resultat); // Affiche 8
+
+// Paramètre par défaut
+function saluer(nom = 'Visiteur') {
+  console.log('Salut, ' + nom + '!');
+}
+
+saluer('Alice'); // 'Salut, Alice!'
+saluer();       // 'Salut, Visiteur!'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 Fonctions Fléchées</h2>
+                            <p class="mb-4">
+                                Introduites avec ES6, les fonctions fléchées (`arrow functions`) offrent une syntaxe
+                                plus concise, en particulier pour les fonctions anonymes.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+// Fonction classique
+const carre = function(x) {
+  return x * x;
+};
+
+// Version Fléchée (plus courte)
+const carreFleche = x => x * x;
+
+console.log(carreFleche(4)); // Affiche 16
+                </code>
+              </pre>
+                            <p class="mt-4 text-sm opacity-80">
+                                Si la fonction fléchée n'a qu'une seule expression, le `return` et les accolades sont
+                                implicites. Pour 0 ou plusieurs paramètres, les parenthèses sont nécessaires.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Le concept de `scope`</h2>
+                            <p class="mb-4">
+                                Le `scope` (portée) définit où une variable est accessible. Dans une fonction, les
+                                variables déclarées sont locales et ne sont pas accessibles à l'extérieur.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+const variableGlobale = 'Je suis partout !';
+
+function monFonc() {
+  const variableLocale = 'Je ne suis qu\'ici.';
+  console.log(variableGlobale); // OK
+  console.log(variableLocale);  // OK
+}
+
+monFonc();
+
+console.log(variableGlobale); // OK
+// console.log(variableLocale); // ERREUR ! La variable n'existe pas ici.
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
