@@ -5,7 +5,7 @@
 
 [![My Skills](https://skillicons.dev/icons?i=html,css,js,vite,tailwind,npm)](https://skillicons.dev)
 <br>
-DaisyUI
+🌞 DaisyUI
 
 ## :information_source: Description
 
