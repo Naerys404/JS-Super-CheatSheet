@@ -6,11 +6,10 @@ Javascript <br>
 Vite.JS <br>
 TailwindCSS <br>
 DaisyUI
-
-<br><br>
+<br>
 
 ## :information_source: Description
 
-Site pratique pour regrouper les leçons vue en cours.
+Site pratique pour regrouper les leçons vues en cours.
 
 
