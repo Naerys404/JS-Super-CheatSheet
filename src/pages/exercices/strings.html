@@ -40,7 +40,28 @@
   </div>
 </nav>
 <h1 class="text-3xl text-center my-5 font-bold">Exercices sur les strings</h1>
+    <script>
+        const restaurantName = `"La pizzeria Raffinata"`;
+        let date = new Date().toLocaleDateString('fr');
+        let pizza = "Calzone";
+        let customerName = "Toto";
+        let customerGender = "M.";
+        let address = "11 avenue de l'Europe, 75000 Paris";
+        let joke = `Qu'est-ce qu'une pizza dit à une autre pizza qui lui demande des conseils ? n/ "Suis ta pâte et tout ira bien !"`;
+        
+        let sumUpPhrase;
+        sumUpPhrase = `Le ${date}: 
+        Bonjour ${customerGender} ${customerName}, votre pizza ${pizza} est en cours de préparation.
+        Elle vous sera livrée d'ici 30 minutes au ${address}.
+        Merci d'avoir commandé chez ${restaurantName}.
+        ---
+        Une petite blague pour patienter :
+        ${joke}
+        `;
+        
+        console.log(sumUpPhrase);
 
+    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
