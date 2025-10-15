@@ -1,4 +1,6 @@
 #  JS Super CheatSheet
+<img width="1236" height="685" alt="image" src="https://github.com/user-attachments/assets/9f026666-ded5-403d-9723-663d468224a8" />
+
 
 ## :pushpin: Langages / Outils
 
