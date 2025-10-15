@@ -1,12 +1,11 @@
 #  JS Super CheatSheet
 
 ## :pushpin: Langages / Outils
-HTML/CSS <br>
-Javascript <br>
-Vite.JS <br>
-TailwindCSS <br>
-DaisyUI
+
+
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,vite,tailwind,npm)](https://skillicons.dev)
 <br>
+DaisyUI
 
 ## :information_source: Description
 
