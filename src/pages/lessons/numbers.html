@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Nombres & Calculs</title>
+</head>
+
+<body class="min-h-screen">
+  <div class="drawer min-h-screen">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+      
+      <!-- Navbar -->
+      <nav class="navbar bg-base-100 shadow-md">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl" href="/">JS CheatSheet</a>
+  </div>
+  <div class="flex-2">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="/">Accueil</a></li>
+      <li>
+        <details>
+          <summary>Leçons</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/src/pages/lessons/variables.html">Variables</a></li>
+            <li><a href="/src/pages/lessons/numbers.html">Nombres et calculs</a></li>
+            <li><a href="/src/pages/lessons/strings.html">Strings</a></li>
+          </ul>
+        </details>
+      </li>
+      
+      <li>
+        <details>
+          <summary>Exercices</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/src/pages/exercices/variables.html">Variables</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#">TP</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+      <!-- Main Content -->
+      <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        
+        <!-- En-tête -->
+        <h1 class="text-4xl font-bold mb-4">Les Nombres et Calculs en JavaScript</h1>
+        <p class="text-lg text-base-content/70 max-w-2xl mx-auto mb-6">
+          En JavaScript, les nombres sont utilisés pour effectuer des calculs simples ou complexes.
+          Voyons ensemble les bases : opérations, modulo, incrémentation et opérateurs d’assignement composés.
+        </p>
+
+        <!-- Section Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          
+          <!-- Card 1 : Déclaration -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">Déclarer des nombres</h2>
+              <p>En JavaScript, les nombres peuvent être entiers ou à virgule flottante :</p>
+              <pre><code class="language-js">let entier = 42;
+let flottant = 3.14;
+</code></pre>
+            </div>
+          </div>
+
+          <!-- Card 2 : Opérations -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">Opérations de base</h2>
+              <p>Les 4 opérations classiques :</p>
+              <pre><code class="language-js">let a = 10;
+let b = 3;
+
+console.log(a + b); // 13
+console.log(a - b); // 7
+console.log(a * b); // 30
+console.log(a / b); // 3.333...
+</code></pre>
+            </div>
+          </div>
+
+          <!-- Card 3 : Modulo -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">Le Modulo (%)</h2>
+              <p>Le modulo donne le reste d’une division :</p>
+              <pre><code class="language-js">console.log(10 % 3); // 1
+console.log(15 % 4); // 3
+</code></pre>
+            </div>
+          </div>
+
+          <!-- Card 4 : Incrémenter / Décrémenter -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">Incrémenter / Décrémenter</h2>
+              <p>On peut ajouter ou retirer 1 à une variable :</p>
+              <pre><code class="language-js">let x = 5;
+x++; // équivaut à x = x + 1
+console.log(x); // 6
+
+x--; // équivaut à x = x - 1
+console.log(x); // 5
+</code></pre>
+            </div>
+          </div>
+
+          <!-- Card 5 : Assignement Composé -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">Opérateurs d’assignement composés</h2>
+              <p>Ils permettent de raccourcir l’écriture :</p>
+              <pre><code class="language-js">let y = 10;
+y += 5; // équivaut à y = y + 5 → 15
+y -= 2; // équivaut à y = y - 2 → 13
+y *= 2; // équivaut à y = y * 2 → 26
+y /= 2; // équivaut à y = y / 2 → 13
+</code></pre>
+            </div>
+          </div>
+
+          <!-- Card 6 : Attention aux décimales -->
+          <div class="card bg-base-200 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title">⚠️ Attention aux décimales</h2>
+              <p>JavaScript utilise le type <code>Number</code> basé sur les flottants.</p>
+              <pre><code class="language-js">console.log(0.1 + 0.2); 
+// 0.30000000000000004
+</code></pre>
+              <p class="text-sm text-warning">Solution : utiliser <code>toFixed()</code> ou des librairies.</p>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <div id="footer-container"></div>
+    </div>
+  </div>
+  
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

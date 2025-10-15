@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Strings</title>
+</head>
+
+<body class="min-h-screen">
+  <div class="drawer min-h-screen">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+      <!-- Navbar -->
+        <nav class="navbar bg-base-100 shadow-md">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl" href="/">JS CheatSheet</a>
+  </div>
+  <div class="flex-2">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="/">Accueil</a></li>
+      <li>
+        <details>
+          <summary>Leçons</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/src/pages/lessons/variables.html">Variables</a></li>
+            <li><a href="/src/pages/lessons/numbers.html">Nombres et calculs</a></li>
+            <li><a href="/src/pages/lessons/strings.html">Strings</a></li>
+          </ul>
+        </details>
+      </li>
+      
+      <li>
+        <details>
+          <summary>Exercices</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            <li><a href="/src/pages/exercices/variables.html">Variables</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#">TP</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+      <!-- Main Content -->
+      <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+           
+                <!-- En-tête de la page -->
+                <div class="text-center mb-12">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-primary">Les Strings en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-3xl mx-auto">
+                        Maîtrisez les chaînes de caractères : syntaxes, concaténation et méthodes essentielles pour manipuler le texte en JavaScript.
+                    </p>
+                </div>
+
+                <!-- Section 1: Syntaxes des strings -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">1</span>
+                            Les différentes syntaxes
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Guillemets simples (')</h3>
+                                <div class="mockup-code">
+                                    <pre><code>let message = 'Bonjour le monde !';
+let nom = 'Alice';
+let phrase = 'Il a dit "Salut"';</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-xl font-semibold mb-3">Guillemets doubles (")</h3>
+                                <div class="mockup-code">
+                                    <pre><code>let message = "Bonjour le monde !";
+let nom = "Bob";
+let phrase = "C'est parfait !";</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="text-xl font-semibold mb-3">Template literals (backticks `)</h3>
+                            <div class="mockup-code">
+                                <pre><code>let nom = "Charlie";
+let age = 25;
+
+// Interpolation de variables
+let presentation = `Je m'appelle ${nom} et j'ai ${age} ans`;
+
+// Strings multi-lignes
+let poeme = `Roses are red,
+Violets are blue,
+JavaScript is awesome,
+And so are you!`;</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-info mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span><strong>Astuce :</strong> Utilisez les template literals pour l'interpolation de variables et les strings multi-lignes.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Concaténation -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">2</span>
+                            Concaténation des strings
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div>
+                                <h3 class="text-lg font-semibold mb-3">Opérateur +</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let prenom = "Jean";
+let nom = "Dupont";
+let complet = prenom + " " + nom;
+// "Jean Dupont"
+
+let salutation = "Bonjour " + prenom;
+// "Bonjour Jean"</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold mb-3">Opérateur +=</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let message = "Hello";
+message += " ";
+message += "World";
+// "Hello World"
+
+let liste = "Fruits: ";
+liste += "pomme, ";
+liste += "banane";
+// "Fruits: pomme, banane"</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="text-lg font-semibold mb-3">Template literals</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let prenom = "Marie";
+let age = 30;
+let ville = "Paris";
+
+let bio = `${prenom}, ${age} ans, 
+habite à ${ville}`;
+
+let calcul = `2 + 3 = ${2 + 3}`;
+// "2 + 3 = 5"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success mt-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            <span><strong>Recommandation :</strong> Privilégiez les template literals pour une meilleure lisibilité.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 3: Propriétés essentielles -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">3</span>
+                            Propriétés des strings
+                        </h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="table table-zebra w-full">
+                                <thead>
+                                    <tr>
+                                        <th>Propriété</th>
+                                        <th>Description</th>
+                                        <th>Exemple</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="bg-base-300 px-2 py-1 rounded">length</code></td>
+                                        <td>Retourne la longueur de la chaîne</td>
+                                        <td><code>"Hello".length // 5</code></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mockup-code mt-4">
+                            <pre><code>let texte = "JavaScript";
+console.log(texte.length); // 10
+
+let vide = "";
+console.log(vide.length); // 0
+
+let espaces = "   ";
+console.log(espaces.length); // 3</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 4: Méthodes de base -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">4</span>
+                            Méthodes de transformation
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Changement de casse</h3>
+                                    <div class="mockup-code text-sm">
+                                        <pre><code>let texte = "Hello World";
+
+texte.toUpperCase(); // "HELLO WORLD"
+texte.toLowerCase(); // "hello world"
+
+// Première lettre en majuscule
+function capitaliser(str) {
+  return str.charAt(0).toUpperCase() + 
+         str.slice(1).toLowerCase();
+}
+
+capitaliser("jAVAsCRIPT"); // "Javascript"</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <h3 class="font-semibold text-lg mb-2">Nettoyage</h3>
+                                    <div class="mockup-code text-sm">
+                                        <pre><code>let texte = "  Hello World  ";
+
+texte.trim();      // "Hello World"
+texte.trimStart(); // "Hello World  "
+texte.trimEnd();   // "  Hello World"
+
+// Supprimer les espaces multiples
+let phrase = "Hello    World";
+phrase.replace(/\s+/g, ' '); // "Hello World"</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 5: Méthodes de recherche -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">5</span>
+                            Méthodes de recherche et vérification
+                        </h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="table table-zebra w-full mb-4">
+                                <thead>
+                                    <tr>
+                                        <th>Méthode</th>
+                                        <th>Retour</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>indexOf()</code></td>
+                                        <td>number</td>
+                                        <td>Index de la première occurrence (-1 si absent)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>lastIndexOf()</code></td>
+                                        <td>number</td>
+                                        <td>Index de la dernière occurrence</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>includes()</code></td>
+                                        <td>boolean</td>
+                                        <td>Vérifie si la chaîne contient le texte</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>startsWith()</code></td>
+                                        <td>boolean</td>
+                                        <td>Vérifie si la chaîne commence par le texte</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>endsWith()</code></td>
+                                        <td>boolean</td>
+                                        <td>Vérifie si la chaîne finit par le texte</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mockup-code">
+                            <pre><code>let phrase = "JavaScript est un langage de programmation";
+
+// Recherche d'index
+phrase.indexOf("Script");     // 4
+phrase.indexOf("Python");     // -1 (non trouvé)
+phrase.lastIndexOf("a");      // 35
+
+// Vérifications booléennes
+phrase.includes("JavaScript"); // true
+phrase.includes("Python");    // false
+
+phrase.startsWith("Java");    // true
+phrase.startsWith("Script");  // false
+
+phrase.endsWith("tion");      // true
+phrase.endsWith("Java");      // false
+
+// Utilisation pratique
+if (phrase.includes("JavaScript")) {
+    console.log("Cette phrase parle de JavaScript !");
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 6: Méthodes d'extraction -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">6</span>
+                            Extraction et découpage
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Extraction de caractères</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let mot = "JavaScript";
+
+// Accès par index
+mot[0];        // "J"
+mot[4];        // "S"
+mot[mot.length - 1]; // "t"
+
+// Méthodes d'extraction
+mot.charAt(0);    // "J"
+mot.charAt(100);  // "" (vide si hors limite)
+
+mot.charCodeAt(0); // 74 (code Unicode)
+</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Extraction de sous-chaînes</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let phrase = "Hello World JavaScript";
+
+// slice(début, fin) - fin non incluse
+phrase.slice(0, 5);   // "Hello"
+phrase.slice(6, 11);  // "World"
+phrase.slice(-10);    // "JavaScript"
+phrase.slice(6, -11); // "World"
+
+// substring(début, fin)
+phrase.substring(0, 5); // "Hello"
+phrase.substring(5, 0); // "Hello" (inverse auto)
+
+// substr(début, longueur) - DEPRECATED
+phrase.substr(6, 5); // "World"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 7: Split et Join -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">7</span>
+                            Split et manipulation de tableaux
+                        </h2>
+                        
+                        <div class="mockup-code mb-4">
+                            <pre><code>// Split - Convertir une string en tableau
+let fruits = "pomme,banane,orange,kiwi";
+let tableau = fruits.split(",");
+// ["pomme", "banane", "orange", "kiwi"]
+
+let phrase = "Hello World JavaScript";
+let mots = phrase.split(" ");
+// ["Hello", "World", "JavaScript"]
+
+// Limiter le nombre d'éléments
+let limité = phrase.split(" ", 2);
+// ["Hello", "World"]
+
+// Split par caractère
+let lettres = "Hello".split("");
+// ["H", "e", "l", "l", "o"]
+
+// Join - Convertir un tableau en string
+let animaux = ["chat", "chien", "oiseau"];
+let liste = animaux.join(", ");
+// "chat, chien, oiseau"
+
+let path = ["home", "user", "documents"];
+let chemin = path.join("/");
+// "home/user/documents"</code></pre>
+                        </div>
+
+                        <div class="alert alert-warning">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.98-.833-2.75 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" /></svg>
+                            <span><strong>Attention :</strong> <code>split("")</code> avec une chaîne vide divise chaque caractère.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 8: Replace et expressions régulières -->
+                <div class="card bg-base-200 shadow-xl mb-8">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4 text-secondary">
+                            <span class="badge badge-secondary badge-lg">8</span>
+                            Remplacement et expressions régulières
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Replace simple</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let phrase = "J'aime JavaScript et JavaScript";
+
+// Remplace la première occurrence
+phrase.replace("JavaScript", "Python");
+// "J'aime Python et JavaScript"
+
+// Remplace toutes les occurrences
+phrase.replace(/JavaScript/g, "Python");
+// "J'aime Python et Python"
+
+// Case insensitive
+let texte = "Hello WORLD hello";
+texte.replace(/hello/gi, "Hi");
+// "Hi WORLD Hi"</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">ReplaceAll (ES2021)</h3>
+                                <div class="mockup-code text-sm">
+                                    <pre><code>let phrase = "J'aime JavaScript et JavaScript";
+
+// Nouvelle méthode replaceAll
+phrase.replaceAll("JavaScript", "Python");
+// "J'aime Python et Python"
+
+// Nettoyer les espaces multiples
+let texte = "Hello    World   !";
+texte.replaceAll(/\s+/g, " ");
+// "Hello World !"
+
+// Supprimer tous les chiffres
+let mixte = "abc123def456";
+mixte.replaceAll(/\d/g, "");
+// "abcdef"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 9: Exemples pratiques -->
+                <div class="card bg-primary text-primary-content shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title text-2xl mb-4">
+                            <span class="badge badge-accent badge-lg">💡</span>
+                            Exemples pratiques
+                        </h2>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Validation d'email</h3>
+                                <div class="mockup-code bg-base-300 text-base-content text-sm">
+                                    <pre><code>function validerEmail(email) {
+    return email.includes("@") && 
+           email.includes(".") && 
+           email.indexOf("@") > 0 &&
+           email.lastIndexOf(".") > email.indexOf("@");
+}
+
+validerEmail("user@example.com"); // true
+validerEmail("invalide.email");   // false</code></pre>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-semibold text-lg mb-3">Formatage de nom</h3>
+                                <div class="mockup-code bg-base-300 text-base-content text-sm">
+                                    <pre><code>function formaterNom(nom) {
+    return nom.trim()
+              .toLowerCase()
+              .split(' ')
+              .map(mot => mot.charAt(0).toUpperCase() + 
+                         mot.slice(1))
+              .join(' ');
+}
+
+formaterNom("  jean-PAUL dupont  ");
+// "Jean-Paul Dupont"</code></pre>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <h3 class="font-semibold text-lg mb-3">Générateur de slug</h3>
+                            <div class="mockup-code bg-base-300 text-base-content">
+                                <pre><code>function genererSlug(titre) {
+    return titre.toLowerCase()
+                .trim()
+                .replace(/[^a-z0-9\s-]/g, '') // Supprimer caractères spéciaux
+                .replace(/\s+/g, '-')         // Espaces -> tirets
+                .replace(/-+/g, '-')          // Tirets multiples -> un seul
+                .replace(/^-|-$/g, '');       // Supprimer tirets début/fin
+}
+
+genererSlug("Les Strings en JavaScript !!");
+// "les-strings-en-javascript"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Résumé final -->
+                <div class="card bg-success text-success-content shadow-xl mt-8">
+                    <div class="card-body text-center">
+                        <h2 class="card-title justify-center text-2xl mb-4">
+                            🎉 Félicitations !
+                        </h2>
+                        <p class="text-lg mb-4">
+                            Vous maîtrisez maintenant les strings en JavaScript ! Vous connaissez les différentes syntaxes, 
+                            les méthodes de manipulation et les techniques de concaténation.
+                        </p>
+                        <div class="card-actions justify-center">
+                            <button class="btn btn-accent" onclick="window.scrollTo(0,0)">
+                                Retour au début
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+    
+      </main>
+
+      <!-- Footer -->
+      <div id="footer-container"></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
