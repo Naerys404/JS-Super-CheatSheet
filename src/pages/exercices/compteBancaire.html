@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compte Bancaire</title>
+  </head>
+  <body>
+    <div class="navbar-container"></div>
+    <h1 class="text-3xl text-center my-5 font-bold">Exercice Classes Compte Bancaire</h1>
+
+    <h2 class="p-4 pb-2 text-2xl opacity-70 tracking-wide">Etat des comptes bancaires</h2>
+
+    <ul class="list bg-base-200 rounded-box p-5 flex items-center" id="accountsList"></ul>
+
+
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        
+        let accountsListDOM = document.getElementById('accountsList');
+        let newLi = document.createElement("li");
+       class BankAccount {
+            constructor(customer){
+                this.customer = customer;
+                this.sold = 0;
+            }
+
+            credit(n) {
+                this.sold += n;
+            }
+
+            withDrawal(n) {
+                if(n < this.sold){
+                    this.sold -= n;
+                } else {
+                    let newLi = document.createElement("li");
+                    newLi.classList.add("w-100","p-5", "flex","flex-col", "items-center","bg-error","mb-5","rounded");
+                    newLi.innerHTML = `
+                        <div>${this.customer}</div>
+                        <div class="text-xs uppercase font-semibold opacity-60">Solde trop bas pour retirer ${n} euros.</div>
+                    `;
+                    accountsListDOM.appendChild(newLi);
+                    //  throw new Error(`Solde trop bas pour retirer ${n} euros.`);
+                } 
+                
+            }
+
+            transfer(n, customerToCredit){
+                if(n < this.sold){
+                    this.withDrawal(n);
+                    customerToCredit.credit(n);
+
+                } else {
+                    let newLi = document.createElement("li");
+                    newLi.classList.add("w-100","p-5", "flex","flex-col", "items-center", "bg-error", "mb-5","rounded");
+                    newLi.innerHTML = `
+                        Solde trop bas pour retirer ${n} euros.
+                    `;
+                    accountsListDOM.appendChild(newLi);
+                    // throw new Error(`Solde trop bas pour effectuer un virement de ${n} euros.`);
+                }
+            }
+
+
+       }
+
+       const accounts = {
+            Alex: new BankAccount("Alex"),
+            Clovis: new BankAccount("Clovis"),
+            Marco: new BankAccount("Marco"),
+       };
+
+       
+       for (let key in accounts) accounts[key].credit(1000);
+
+       accounts["Alex"].withDrawal(100);
+       accounts["Marco"].transfer(300, accounts["Clovis"]);
+       accounts["Alex"].withDrawal(1200);
+
+       for (let key in accounts) {
+            console.log(accounts[key].sold);
+       }
+
+       for (let key in accounts) {
+            let newLi = document.createElement("li");
+            newLi.classList.add("w-100","p-5", "flex","flex-col", "items-center","bg-success", "mb-5","rounded");
+            newLi.innerHTML = `
+                <div>${key}</div>
+                <div class="text-xs uppercase font-semibold opacity-60">${accounts[key].sold} €</div>
+            `;
+
+            accountsListDOM.appendChild(newLi);
+       }
+
+    </script>
+  </body>
+</html>
