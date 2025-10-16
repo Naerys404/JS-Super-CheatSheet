@@ -55,7 +55,7 @@
                     let newLi = document.createElement("li");
                     newLi.classList.add("w-100","p-5", "flex","flex-col", "items-center", "bg-error", "mb-5","rounded");
                     newLi.innerHTML = `
-                        Solde trop bas pour retirer ${n} euros.
+                        Solde trop bas pour faire un virement de ${n} euros.
                     `;
                     accountsListDOM.appendChild(newLi);
                     // throw new Error(`Solde trop bas pour effectuer un virement de ${n} euros.`);
