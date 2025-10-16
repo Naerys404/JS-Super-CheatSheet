@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les Storages : localStorage, sessionStorage et Cookies</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les Storages : localStorage, sessionStorage et Cookies</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        La gestion des données côté client est essentielle pour stocker des informations de manière
+                        persistante ou temporaire dans le navigateur de l'utilisateur. Chaque méthode a un cas
+                        d'utilisation spécifique.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 `localStorage`</h2>
+                            <p class="mb-4">
+                                Le `localStorage` permet de stocker des paires clé-valeur de manière **persistante**,
+                                même si l'utilisateur ferme son navigateur. Les données sont stockées sous forme de
+                                chaînes de caractères (`string`).
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+        // Stocker des données
+        localStorage.setItem('nom', 'Alice');
+        localStorage.setItem('theme', 'dark');
+
+        // Récupérer des données
+        const nomUtilisateur = localStorage.getItem('nom');
+        console.log(nomUtilisateur); // 'Alice'
+
+        // Supprimer une donnée
+        localStorage.removeItem('theme');
+
+        // Vider tout le localStorage
+        // localStorage.clear();
+
+        // Attention : les objets doivent être JSON.stringify
+        const utilisateur = { id: 1, pseudo: 'Bob' };
+        localStorage.setItem('user', JSON.stringify(utilisateur));
+
+        const userRecupere = JSON.parse(localStorage.getItem('user'));
+        console.log(userRecupere.pseudo); // 'Bob'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ `sessionStorage` et les Cookies</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">`sessionStorage`</h3>
+                                    <p>
+                                        Similaire au `localStorage`, mais les données sont **temporaires**. Elles sont
+                                        effacées lorsque l'onglet ou la fenêtre du navigateur est fermé. Idéal pour des
+                                        données de session (ex: formulaires temporaires).
+                                    </p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+        // Les mêmes méthodes que localStorage
+        sessionStorage.setItem('statut', 'en cours');
+        const statut = sessionStorage.getItem('statut');
+        console.log(statut); // 'en cours'
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2">Cookies</h3>
+                                    <p>
+                                        Les cookies sont de petits fichiers texte qui stockent des données côté client
+                                        et sont envoyés au serveur avec chaque requête HTTP. Ils sont souvent utilisés
+                                        pour l'authentification et les préférences.
+                                    </p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+        // Gérer les cookies en JavaScript pur est complexe
+        document.cookie = "token=12345; expires=Thu, 18 Dec 2025 12:00:00 UTC";
+
+        // C'est pourquoi on préfère souvent des librairies ou des frameworks
+        // qui les gèrent automatiquement pour des cas d'utilisation spécifiques.
+                    </code>
+                  </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 Gestion d'état avancée : Pinia</h2>
+                            <p class="mb-4">
+                                Pour les applications web complexes (en particulier avec des frameworks comme Vue.js),
+                                `localStorage` et `sessionStorage` peuvent devenir difficiles à gérer. Une librairie de
+                                gestion d'état comme **Pinia** (pour Vue) centralise les données, offrant une approche
+                                plus structurée et réactive.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+        // Exemple d'un "store" Pinia (simplifié)
+        import { defineStore } from 'pinia';
+
+        export const useUserStore = defineStore('user', {
+        state: () => ({
+            nom: 'Invitée',
+            estConnecte: false
+        }),
+        actions: {
+            seConnecter(nouveauNom) {
+            this.nom = nouveauNom;
+            this.estConnecte = true;
+            }
+        }
+        });
+
+        // Dans un composant
+        // import { useUserStore } from './stores/user';
+        // const user = useUserStore();
+        // user.seConnecter('Alice');
+                </code>
+              </pre>
+                            <p class="mt-4 text-sm opacity-80">
+                                L'utilisation de librairies comme Pinia est recommandée pour les applications à grande
+                                échelle, car elles facilitent la synchronisation des données entre les différents
+                                composants.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Ne stockez **jamais de données sensibles** (mot de passe, jeton d'authentification)
+                                    dans le `localStorage` car il est accessible via le JavaScript de la page.</li>
+                                <li>Utilisez `localStorage` pour des données qui doivent persister (préférences, thème,
+                                    état utilisateur).</li>
+                                <li>Utilisez `sessionStorage` pour des données qui ne sont pertinentes que pour la
+                                    session en cours.</li>
+                                <li>Pour les applications complexes, envisagez une librairie de gestion d'état comme
+                                    Pinia ou Redux, qui offrent plus de contrôle et de lisibilité.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

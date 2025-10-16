@@ -16,6 +16,11 @@
             <li><a href="/src/pages/lessons/arrays.html">Tableaux</a></li>
             <li><a href="/src/pages/lessons/objects.html">Objets</a></li>
             <li><a href="/src/pages/lessons/functions.html">Fonctions</a></li>
+            <li><a href="/src/pages/lessons/loops.html">Boucles</a></li>
+            <li><a href="/src/pages/lessons/dom-selectors.html">DOM : Sélecteurs</a></li>
+            <li><a href="/src/pages/lessons/dom-attributes.html">DOM : Attributs </a></li>
+            <li><a href="/src/pages/lessons/dom-events.html">DOM : Evenements </a></li>
+            <li><a href="/src/pages/lessons/web-storage.html">Web Storage</a></li>
           </ul>
         </details>
       </li>

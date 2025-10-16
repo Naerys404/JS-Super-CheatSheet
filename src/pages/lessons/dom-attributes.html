@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Gérer les Attributs HTML</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Gérer les Attributs HTML en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        La manipulation des attributs HTML, des classes CSS et des styles est essentielle pour créer des
+                        interfaces utilisateur dynamiques et interactives.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 Pourquoi manipuler les attributs ?</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Modifier dynamiquement le contenu d'une page (ex: changer une image via l'attribut
+                                    `src`).</li>
+                                <li>Créer des états visuels (ex: désactiver un bouton via l'attribut `disabled`).</li>
+                                <li>Stocker des données personnalisées (ex: `data-id`) pour un usage en JavaScript.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Gérer les attributs : `setAttribute` & `getAttribute`</h2>
+                            <p class="mb-4">
+                                Ces deux méthodes sont la manière la plus courante de manipuler les attributs.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+    // Supposons un bouton dans le HTML : <button id="mon-bouton">Clique-moi</button>
+    const bouton = document.getElementById('mon-bouton');
+
+    // Définir un attribut
+    bouton.setAttribute('disabled', '');
+    // Le HTML devient : <button id="mon-bouton" disabled>Clique-moi</button>
+
+    // Lire un attribut
+    const isDisabled = bouton.getAttribute('disabled');
+    console.log(isDisabled); // '' (ou 'true' selon le navigateur)
+
+    // Supprimer un attribut
+    bouton.removeAttribute('disabled');
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 Gérer les classes : `classList`</h2>
+                            <p class="mb-4">
+                                La propriété `classList` est la manière moderne de manipuler les classes CSS d'un
+                                élément, offrant des méthodes simples pour ajouter, supprimer ou vérifier la présence
+                                d'une classe.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+    const card = document.querySelector('.card');
+
+    // Ajouter une classe
+    card.classList.add('bg-blue-500');
+
+    // Supprimer une classe
+    card.classList.remove('bg-base-100');
+
+    // Basculer une classe (l'ajoute si elle n'existe pas, la supprime si elle existe)
+    card.classList.toggle('shadow-xl');
+
+    // Vérifier si une classe est présente
+    if (card.classList.contains('bg-blue-500')) {
+    console.log('La carte est bleue.');
+    }
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Gérer les styles : `style`</h2>
+                            <p class="mb-4">
+                                La propriété `style` permet d'accéder et de modifier les styles en ligne (inline) d'un
+                                élément.
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Les noms de propriétés CSS avec tirets (ex: `background-color`) deviennent des noms
+                                    en camelCase (ex: `backgroundColor`).</li>
+                            </ul>
+                            <pre class="mockup-code text-left">
+                <code>
+    const titre = document.querySelector('h1');
+
+    // Modifier un style
+    titre.style.color = 'red';
+    titre.style.fontSize = '3rem';
+
+    // Lire un style
+    const couleurTitre = titre.style.color;
+    console.log(couleurTitre); // 'red'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

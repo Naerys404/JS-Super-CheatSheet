@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Sélecteurs DOM en JavaScript</title>
+  </head>
+  <body class="min-h-screen">
+    <div class="drawer min-h-screen">
+      <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col min-h-screen">
+        <!-- Navbar -->
+        <div class="navbar-container"></div>
+
+        <!-- Main Content -->
+        <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+          <!-- Le contenu spécifique de la leçon sera inséré ici -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Sélecteurs DOM en JavaScript</h1>
+          <p class="py-4 sm:py-6 text-sm sm:text-base">Le Document Object Model (DOM) est une interface de programmation pour les documents HTML et XML. Il représente la structure du document sous forme d'arborescence, où chaque nœud est un objet représentant une partie du document.</p>
+          <p class="py-2 text-sm sm:text-base">En JavaScript, nous utilisons les sélecteurs DOM pour accéder à ces nœuds et manipuler le contenu, la structure et le style des documents web.</p>
+
+          <section class="mt-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Méthodes de Sélection d'Éléments</h2>
+            
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <h3 class="card-title text-xl sm:text-2xl">1. <code class="text-primary">getElementById()</code></h3>
+                <p>Sélectionne un élément par son attribut <code class="text-info">id</code>. Il retourne un seul élément ou <code class="text-warning">null</code> si aucun élément n'est trouvé. L'<code class="text-info">id</code> doit être unique dans le document.</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;div id="monElement"&gt;Ceci est un élément.&lt;/div&gt;</code></pre>
+                  <pre data-prefix="2"><code>const element = document.getElementById('monElement');</code></pre>
+                  <pre data-prefix="3"><code>console.log(element.textContent); // Affiche: Ceci est un élément.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <h3 class="card-title text-xl sm:text-2xl">2. <code class="text-secondary">getElementsByClassName()</code></h3>
+                <p>Sélectionne tous les éléments qui ont une classe CSS spécifique. Elle retourne une <code class="text-info">HTMLCollection</code> (collection d'éléments HTML "live").</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;div class="maClasse"&gt;Un&lt;/div&gt;</code></pre>
+                  <pre data-prefix="2"><code>&lt;div class="maClasse"&gt;Deux&lt;/div&gt;</code></pre>
+                  <pre data-prefix="3"><code>const elements = document.getElementsByClassName('maClasse');</code></pre>
+                  <pre data-prefix="4"><code>console.log(elements.length); // Affiche: 2</code></pre>
+                  <pre data-prefix="5"><code>console.log(elements[0].textContent); // Affiche: Un</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <h3 class="card-title text-xl sm:text-2xl">3. <code class="text-accent">getElementsByTagName()</code></h3>
+                <p>Sélectionne tous les éléments d'un nom de balise donné (par exemple, <code class="text-info">div</code>, <code class="text-info">p</code>, <code class="text-info">a</code>). Elle retourne également une <code class="text-info">HTMLCollection</code>.</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;p&gt;Paragraphe 1&lt;/p&gt;</code></pre>
+                  <pre data-prefix="2"><code>&lt;p&gt;Paragraphe 2&lt;/p&gt;</code></pre>
+                  <pre data-prefix="3"><code>const paragraphes = document.getElementsByTagName('p');</code></pre>
+                  <pre data-prefix="4"><code>console.log(paragraphes.length); // Affiche: (nombre de paragraphes dans le document)</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <h3 class="card-title text-xl sm:text-2xl">4. <code class="text-info">querySelector()</code></h3>
+                <p>Retourne le <strong>premier</strong> élément qui correspond à un sélecteur CSS spécifié (ex: <code class="text-info">.maClasse</code>, <code class="text-info">#monElement</code>, <code class="text-info">p</code>). C'est une méthode très flexible.</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;div class="conteneur"&gt;</code></pre>
+                  <pre data-prefix="2"><code>  &lt;p&gt;Premier paragraphe.&lt;/p&gt;</code></pre>
+                  <pre data-prefix="3"><code>  &lt;p class="special"&gt;Paragraphe spécial.&lt;/p&gt;</code></pre>
+                  <pre data-prefix="4"><code>&lt;/div&gt;</code></pre>
+                  <pre data-prefix="5"><code>const premierP = document.querySelector('p');</code></pre>
+                  <pre data-prefix="6"><code>console.log(premierP.textContent); // Affiche: Premier paragraphe.</code></pre>
+                  <pre data-prefix="7"><code>const specialP = document.querySelector('.special');</code></pre>
+                  <pre data-prefix="8"><code>console.log(specialP.textContent); // Affiche: Paragraphe spécial.</code></pre>
+                </div>
+              </div>
+            </div>
+
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <h3 class="card-title text-xl sm:text-2xl">5. <code class="text-warning">querySelectorAll()</code></h3>
+                <p>Retourne tous les éléments qui correspondent à un sélecteur CSS spécifié. Elle retourne une <code class="text-info">NodeList</code> (collection de nœuds non "live").</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;ul&gt;</code></pre>
+                  <pre data-prefix="2"><code>  &lt;li class="item"&gt;Item 1&lt;/li&gt;</code></pre>
+                  <pre data-prefix="3"><code>  &lt;li class="item"&gt;Item 2&lt;/li&gt;</code></pre>
+                  <pre data-prefix="4"><code>&lt;/ul&gt;</code></pre>
+                  <pre data-prefix="5"><code>const items = document.querySelectorAll('.item');</code></pre>
+                  <pre data-prefix="6"><code>items.forEach(item => console.log(item.textContent));</code></pre>
+                  <pre data-prefix="7"><code>// Affiche:// Item 1// Item 2</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4">HTMLCollection vs. NodeList</h2>
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <p><code class="text-info">HTMLCollection</code> est "live", ce qui signifie qu'elle se met à jour automatiquement si le DOM change. Les méthodes comme <code class="text-secondary">getElementsByClassName</code> et <code class="text-accent">getElementsByTagName</code> retournent des <code class="text-info">HTMLCollection</code>.</p>
+                <p class="mt-2"><code class="text-info">NodeList</code> est généralement statique (non "live"), sauf pour <code class="text-info">childNodes</code>. <code class="text-warning">querySelectorAll</code> retourne une <code class="text-info">NodeList</code>. Les <code class="text-info">NodeList</code> peuvent être itérées avec <code class="text-info">forEach</code>, ce qui n'est pas directement possible avec <code class="text-info">HTMLCollection</code> sans la convertir en tableau (par exemple, avec <code class="text-info">Array.from()</code>).</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="mt-8">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4">Modification d'Attributs et de Styles</h2>
+            <div class="card bg-base-100 shadow-xl mb-6">
+              <div class="card-body">
+                <p>Une fois qu'un élément est sélectionné, vous pouvez modifier ses attributs et ses styles.</p>
+                <div class="mockup-code my-4">
+                  <pre data-prefix="1"><code>&lt;button id="myButton"&gt;Cliquez-moi&lt;/button&gt;</code></pre>
+                  <pre data-prefix="2"><code>const button = document.getElementById('myButton');</code></pre>
+                  <pre data-prefix="3"><code></code></pre>
+                  <pre data-prefix="4"><code>// Modification du texte</code></pre>
+                  <pre data-prefix="5"><code>button.textContent = "Je suis cliqué!";</code></pre>
+                  <pre data-prefix="6"><code></code></pre>
+                  <pre data-prefix="7"><code>// Modification d'un attribut (e.g., id, class, src)</code></pre>
+                  <pre data-prefix="8"><code>button.setAttribute('data-status', 'clicked');</code></pre>
+                  <pre data-prefix="9"><code>// ou directement pour les classes:</code></pre>
+                  <pre data-prefix="10"><code>button.classList.add('btn-success');</code></pre>
+                  <pre data-prefix="11"><code>button.classList.remove('btn-primary');</code></pre>
+                  <pre data-prefix="12"><code></code></pre>
+                  <pre data-prefix="13"><code>// Modification de style en ligne</code></pre>
+                  <pre data-prefix="14"><code>button.style.backgroundColor = '#10B981'; // Tailwind green-500</code></pre>
+                  <pre data-prefix="15"><code>button.style.color = 'white';</code></pre>
+                  <pre data-prefix="16"><code>button.style.padding = '1rem 2rem';</code></pre>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="alert mt-8">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="stroke-current shrink-0 w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span><strong>Conseil :</strong> Pour des manipulations de style plus complexes ou pour maintenir la séparation des préoccupations, préférez manipuler les classes CSS (<code class="text-info">classList.add()</code>, <code class="text-info">classList.remove()</code>, <code class="text-info">classList.toggle()</code>) plutôt que de définir directement les styles en ligne avec <code class="text-info">element.style</code>.</span>
+          </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer footer-center bg-base-200 text-base-content rounded-t-lg p-6 sm:p-10 mt-auto">
+          <nav class="grid grid-flow-col gap-2 sm:gap-4 text-xs sm:text-sm">
+            <a class="link link-hover">À propos</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover hidden sm:inline">Mentions légales</a>
+            <a class="link link-hover hidden sm:inline">Politique de confidentialité</a>
+          </nav>
+          <nav>
+            <div class="grid grid-flow-col gap-3 sm:gap-4">
+              <a class="hover:scale-110 transition-transform"><svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"></path></svg></a>
+              <a class="hover:scale-110 transition-transform"><svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"></path></svg></a>
+              <a class="hover:scale-110 transition-transform"><svg class="w-5 h-5 sm:w-6 sm:h-6 fill-current" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"></path></svg></a>
+            </div>
+          </nav>
+          <aside>
+            <p id="copyright-year" class="text-xs sm:text-sm">Copyright © 2024 - Tous droits réservés par MonSite</p>
+          </aside>
+        </footer>
+                <!-- <div class="maClasse">un truc</div>
+                <div class="maClasse">deuxieme truc</div> -->
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+            // const elements = document.getElementsByClassName('maClasse');
+            // const elementsQuery = document.querySelectorAll('.maClasse');
+
+            // console.log(elements);
+            // console.log(elementsQuery);
+            
+            // console.log(elements.length); // Affiche: 2
+            // console.log(elements[0].textContent); // Affiche: Un
+            // console.log(elements[0].innerHTML); // Affiche: Un
+
+            // elements[0].innerHTML = "J'ai changé le contenu !";
+            // elements[0].style.color = 'red';
+
+    </script>
+  </body>
+</html>

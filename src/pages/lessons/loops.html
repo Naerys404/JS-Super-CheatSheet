@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les boucles en JavaScript</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les boucles en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        Les boucles sont des structures de contrôle qui permettent d'exécuter un bloc de code de manière
+                        répétée. Elles sont essentielles pour automatiser des tâches sur des collections de données.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 Pourquoi utiliser des boucles ?</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Parcourir les éléments d'un tableau ou d'un objet.</li>
+                                <li>Exécuter une tâche un nombre de fois défini.</li>
+                                <li>Automatiser des processus répétitifs pour éviter la duplication de code.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Les boucles de base : for et while</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>for</code></h3>
+                                    <p>La boucle `for` est la plus courante. Elle a une syntaxe claire pour
+                                        l'initialisation, la condition et l'incrémentation.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    for (let i = 0; i < 3; i++) {
+        console.log('Répétition n°' + i);
+    }
+    // Affiche :
+    // Répétition n°0
+    // Répétition n°1
+    // Répétition n°2
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>while</code></h3>
+                                    <p>La boucle `while` s'exécute tant qu'une condition reste vraie. Faites attention
+                                        aux boucles infinies !</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    let compteur = 0;
+    while (compteur < 3) {
+        console.log('Compteur : ' + compteur);
+        compteur++; // Ne pas oublier l'incrémentation
+    }
+    // Affiche :
+    // Compteur : 0
+    // Compteur : 1
+    // Compteur : 2
+                    </code>
+                  </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 Boucles pour les collections (tableaux & objets)</h2>
+                            <div class="space-y-6">
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>forEach</code> (pour les tableaux)</h3>
+                                    <p>Une méthode de tableau très pratique pour itérer sur chaque élément sans gérer
+                                        d'index.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    const fruits = ['pomme', 'banane', 'orange'];
+    fruits.forEach(fruit => {
+        console.log(fruit);
+    });
+    // Affiche : 'pomme', 'banane', 'orange'
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>for...of</code> (pour les itérables)</h3>
+                                    <p>La meilleure solution pour parcourir les éléments d'un tableau ou d'une chaîne de
+                                        caractères.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    const fruits = ['pomme', 'banane', 'orange'];
+    for (const fruit of fruits) {
+        console.log(fruit);
+    }
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>for...in</code> (pour les objets)</h3>
+                                    <p>Utilisée pour parcourir les propriétés d'un objet. Elle renvoie les clés.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    const utilisateur = { nom: 'Alice', age: 30 };
+    for (const cle in utilisateur) {
+        console.log(cle + ': ' + utilisateur[cle]);
+    }
+    // Affiche : 'nom: Alice', 'age: 30'
+                    </code>
+                  </pre>
+                                </div>
+
+                                <div>
+                                    <h3 class="font-bold text-lg mb-2"><code>map()</code> (pour les tableaux)</h3>
+                                    <p>Permet de créer un **nouveau tableau** en transformant chaque élément. C'est plus
+                                        qu'une simple boucle, c'est une méthode de transformation.</p>
+                                    <pre class="mockup-code text-left">
+                    <code>
+    const nombres = [1, 2, 3];
+    const doubles = nombres.map(nombre => nombre * 2);
+    console.log(doubles); // [2, 4, 6]
+                    </code>
+                  </pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Pour les tableaux, préférez `forEach`, `for...of` ou `map()` à la boucle `for`
+                                    classique pour plus de clarté. (mais moins performant que for sur des grand ensemble de données</li>
+                                <li>Utilisez `for...in` uniquement pour les objets.</li>
+                                <li>Assurez-vous toujours qu'une boucle `while` a une condition d'arrêt pour éviter une
+                                    boucle infinie.</li>
+                                <li>Le `map()` est le choix par excellence quand vous devez créer un nouveau tableau
+                                    basé sur un existant.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
