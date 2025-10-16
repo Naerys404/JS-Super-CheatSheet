@@ -34,6 +34,7 @@
             <li><a href="/src/pages/exercices/variables.html">Variables</a></li>
             <li><a href="/src/pages/exercices/strings.html">Strings</a></li>
             <li><a href="/src/pages/exercices/scope.html">Scope</a></li>
+            <li><a href="/src/pages/exercices/regexp.html">Regex</a></li>
           </ul>
         </details>
       </li>
