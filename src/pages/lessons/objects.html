@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/style.css">
-    <title>Les Objets en JavaScript | Jefff303.js</title>
+    <title>Les Objets en JavaScript </title>
 </head>
 
 <body class="min-h-screen bg-base-200">
@@ -52,23 +52,23 @@
                             </p>
                             <pre class="mockup-code text-left">
                 <code>
-const utilisateur = {
-  nom: 'Alice',
-  age: 30,
-  estConnecte: true,
-  hobbies: ['lecture', 'voyage']
-};
+    const utilisateur = {
+    nom: 'Alice',
+    age: 30,
+    estConnecte: true,
+    hobbies: ['lecture', 'voyage']
+    };
 
-// Accès par notation point
-console.log(utilisateur.nom);      // 'Alice'
+    // Accès par notation point
+    console.log(utilisateur.nom);      // 'Alice'
 
-// Accès par notation crochets (utile pour les clés dynamiques)
-console.log(utilisateur['age']);   // 30
+    // Accès par notation crochets (utile pour les clés dynamiques)
+    console.log(utilisateur['age']);   // 30
 
-// Ajouter ou modifier une propriété
-utilisateur.ville = 'Paris';
-utilisateur.age = 31;
-console.log(utilisateur);
+    // Ajouter ou modifier une propriété
+    utilisateur.ville = 'Paris';
+    utilisateur.age = 31;
+    console.log(utilisateur);
                 </code>
               </pre>
                         </div>
@@ -88,9 +88,9 @@ console.log(utilisateur);
                                     <p>Renvoie un tableau contenant les noms des propriétés de l'objet.</p>
                                     <pre class="mockup-code text-left">
                     <code>
-const utilisateur = { nom: 'Bob', age: 45 };
-const cles = Object.keys(utilisateur);
-console.log(cles); // ['nom', 'age']
+    const utilisateur = { nom: 'Bob', age: 45 };
+    const cles = Object.keys(utilisateur);
+    console.log(cles); // ['nom', 'age']
                     </code>
                   </pre>
                                 </div>
@@ -100,9 +100,9 @@ console.log(cles); // ['nom', 'age']
                                     <p>Renvoie un tableau contenant les valeurs des propriétés de l'objet.</p>
                                     <pre class="mockup-code text-left">
                     <code>
-const utilisateur = { nom: 'Bob', age: 45 };
-const valeurs = Object.values(utilisateur);
-console.log(valeurs); // ['Bob', 45]
+    const utilisateur = { nom: 'Bob', age: 45 };
+    const valeurs = Object.values(utilisateur);
+    console.log(valeurs); // ['Bob', 45]
                     </code>
                   </pre>
                                 </div>
@@ -112,9 +112,9 @@ console.log(valeurs); // ['Bob', 45]
                                     <p>Renvoie un tableau de paires `[clé, valeur]` pour chaque propriété.</p>
                                     <pre class="mockup-code text-left">
                     <code>
-const utilisateur = { nom: 'Bob', age: 45 };
-const paires = Object.entries(utilisateur);
-console.log(paires); // [['nom', 'Bob'], ['age', 45]]
+    const utilisateur = { nom: 'Bob', age: 45 };
+    const paires = Object.entries(utilisateur);
+    console.log(paires); // [['nom', 'Bob'], ['age', 45]]
                     </code>
                   </pre>
                                 </div>

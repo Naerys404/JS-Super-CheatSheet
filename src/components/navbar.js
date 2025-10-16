@@ -25,6 +25,7 @@
           <ul class="bg-base-100 rounded-t-none p-2">
             <li><a href="/src/pages/exercices/variables.html">Variables</a></li>
             <li><a href="/src/pages/exercices/strings.html">Strings</a></li>
+            <li><a href="/src/pages/exercices/scope.html">Scope</a></li>
           </ul>
         </details>
       </li>

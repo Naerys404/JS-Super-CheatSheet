@@ -6,7 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/src/style.css">
-  <title>Les tableaux en JavaScript | Jefff303.js</title>
+  <title>Les tableaux en JavaScript</title>
 </head>
 
 <body class="min-h-screen bg-base-200">
@@ -34,13 +34,13 @@
               </p>
               <pre class="mockup-code text-left">
                 <code>
-const fruits = ['pomme', 'banane', 'orange'];
-console.log(fruits[0]); // 'pomme'
+    const fruits = ['pomme', 'banane', 'orange'];
+    console.log(fruits[0]); // 'pomme'
 
-fruits[1] = 'mangue'; // modifier un élément
-console.log(fruits); // ['pomme', 'mangue', 'orange']
+    fruits[1] = 'mangue'; // modifier un élément
+    console.log(fruits); // ['pomme', 'mangue', 'orange']
 
-console.log(fruits.length); // 3 (pour la taille du tableau)
+    console.log(fruits.length); // 3 (pour la taille du tableau)
                 </code>
               </pre>
             </div>
@@ -62,9 +62,9 @@ console.log(fruits.length); // 3 (pour la taille du tableau)
               </ul>
               <pre class="mockup-code text-left">
                 <code>
-const legumes = ['carotte', 'brocoli'];
-legumes.push('poireau'); // ['carotte', 'brocoli', 'poireau']
-const dernier = legumes.pop(); // 'poireau', legumes est ['carotte', 'brocoli']
+    const legumes = ['carotte', 'brocoli'];
+    legumes.push('poireau'); // ['carotte', 'brocoli', 'poireau']
+    const dernier = legumes.pop(); // 'poireau', legumes est ['carotte', 'brocoli']
                 </code>
               </pre>
             </div>
@@ -84,9 +84,9 @@ const dernier = legumes.pop(); // 'poireau', legumes est ['carotte', 'brocoli']
                   <p>Crée un nouveau tableau en appliquant une fonction à chaque élément.</p>
                   <pre class="mockup-code text-left">
                     <code>
-const nombres = [1, 2, 3];
-const doubles = nombres.map(nombre => nombre * 2);
-console.log(doubles); // [2, 4, 6]
+    const nombres = [1, 2, 3];
+    const doubles = nombres.map(nombre => nombre * 2);
+    console.log(doubles); // [2, 4, 6]
                     </code>
                   </pre>
                 </div>
@@ -96,9 +96,9 @@ console.log(doubles); // [2, 4, 6]
                   <p>Crée un nouveau tableau avec tous les éléments qui passent un test.</p>
                   <pre class="mockup-code text-left">
                     <code>
-const ages = [12, 18, 25, 6];
-const majeurs = ages.filter(age => age >= 18);
-console.log(majeurs); // [18, 25]
+    const ages = [12, 18, 25, 6];
+    const majeurs = ages.filter(age => age >= 18);
+    console.log(majeurs); // [18, 25]
                     </code>
                   </pre>
                 </div>
@@ -108,9 +108,9 @@ console.log(majeurs); // [18, 25]
                   <p>Exécute une fonction de 'réduction' sur chaque élément, retournant une seule valeur.</p>
                   <pre class="mockup-code text-left">
                     <code>
-const prix = [10, 20, 30];
-const total = prix.reduce((acc, current) => acc + current, 0);
-console.log(total); // 60
+    const prix = [10, 20, 30];
+    const total = prix.reduce((acc, current) => acc + current, 0);
+    console.log(total); // 60
                     </code>
                   </pre>
                 </div>
