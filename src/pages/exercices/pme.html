@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PME</title>
+  </head>
+  <body>
+  <div class="navbar-container"></div>
+  <h1 class="text-3xl text-center my-5 font-bold">Exercice Classes PME</h1>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+
+       class Employee {
+            constructor(lastname, firstname , age, salary){
+                this.lastname = lastname;
+                this.firstname = firstname;
+                this.age = age;
+                this.salary = salary;
+            };
+
+            get totalSalary(){
+                return (this.salary * N)*1.90;
+            }
+
+       };
+
+       class Pme {
+            constructor(name, employees = [], revenue, fixedCosts, purchaseCosts){
+                this.name = name;
+                this.employees = employees;
+                this.revenue = revenue;
+                this.fixedCosts = fixedCosts;
+                this.purchaseCosts = purchaseCosts; 
+            };
+
+            get employeesCost() {
+                let cost = 0;
+                this.employees.forEach(employee => {
+                   cost += employee.totalSalary;
+                });
+
+                return cost;
+            }
+
+            bilanCalculated() {
+                let fixedAndPurchaseCosts = this.fixedCosts + this.purchaseCosts;
+                let statementOfAccount =  this.revenue - (this.employeesCost + this.fixedCosts + this.purchaseCosts);
+
+               console.log(`---------------MA PME---------------`);
+               console.log(`${this.name} : Coût initial : ${fixedAndPurchaseCosts}`)
+               console.log(`${this.name} : Coût total équipe : ${this.employeesCost}`)
+               console.log(`${this.name} : VENTES : ${this.revenue}`)
+               console.log(`${this.name} : BILAN : ${statementOfAccount}`)
+
+            };
+
+       }
+
+       let N = 12;
+       let XXX = 90;
+
+       const pme = new Pme (
+        "Ma Petite Entreprise -",
+        [
+            new Employee("Duval", "Paul", 30, 2000),
+            new Employee("Durand", "Alain", 40, 3000),
+            new Employee("Dois", "Sylvia", 50, 4000)
+        ],
+        300000,
+        20000,
+        50000);
+        pme.bilanCalculated();
+    
+    </script>
+  </body>
+</html>

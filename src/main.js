@@ -1,4 +1,4 @@
 import './style.css';
 import '/src/components/navbar.js';
-// import '/src/regexp.js';
-import '/src/imc.js';
+//import '/src/regexp.js';
+
