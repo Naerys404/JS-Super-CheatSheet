@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <title>Les Classes en JavaScript | Jefff303.js</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+    <div class="drawer min-h-screen">
+        <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col min-h-screen">
+
+            <div class="navbar-container"></div>
+
+            <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+                <section class="text-center mb-10">
+                    <h1 class="text-4xl font-bold mb-4">Les Classes en JavaScript</h1>
+                    <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+                        Les classes sont le cœur de la **programmation orientée objet (POO)** en JavaScript. Elles
+                        permettent de créer des "modèles" pour des objets, encapsulant des données (attributs) et des
+                        fonctionnalités (méthodes) sous une même structure.
+                    </p>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">👉 Déclaration, `new` et `this`</h2>
+                            <p class="mb-4">
+                                Une classe est un plan de construction. Pour créer un objet à partir de ce plan, on
+                                utilise le mot-clé **`new`**. À l'intérieur d'une classe, le mot-clé **`this`** fait
+                                référence à l'instance de l'objet en cours de création ou d'utilisation.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+      class Voiture {
+        // Le constructeur est une méthode spéciale
+        // exécutée lors de l'instanciation
+        constructor(marque, annee) {
+          // Attributs
+          this.marque = marque;
+          this.annee = annee;
+        }
+      }
+
+      // Instanciation de la classe
+      const maVoiture = new Voiture('Renault', 2022);
+      console.log(maVoiture.marque); // 'Renault'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-primary text-primary-content shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">⚡ Méthodes, Getters et Setters</h2>
+                            <p class="mb-4">
+                                Les **méthodes** sont des fonctions définies dans la classe. Les **getters** et
+                                **setters** sont des méthodes spéciales qui permettent d'accéder ou de modifier des
+                                attributs de manière contrôlée.
+                            </p>
+                            <pre class="mockup-code text-left">
+                <code>
+      class Utilisateur {
+        #age; // Attribut privé (non accessible de l'extérieur)
+
+        constructor(nom, age) {
+          this.nom = nom;
+          this.#age = age;
+        }
+
+        // Méthode
+        saluer() {
+          return `Bonjour, je m'appelle ${this.nom}.`;
+        }
+
+        // Getter (pour lire la valeur de #age)
+        get anneeDeNaissance() {
+          return new Date().getFullYear() - this.#age;
+        }
+
+        // Setter (pour modifier la valeur de #age)
+        set nouvelAge(nouvelAge) {
+          if (nouvelAge > 0) {
+            this.#age = nouvelAge;
+          }
+        }
+      }
+
+      const alice = new Utilisateur('Alice', 25);
+      console.log(alice.saluer()); // Bonjour, je m'appelle Alice.
+      console.log(alice.anneeDeNaissance); // ex: 2000
+      alice.nouvelAge = 26;
+      console.log(alice.anneeDeNaissance); // ex: 1999
+      // console.log(alice.#age); // ERREUR ! Attribut privé.
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">🌱 L'héritage avec `extends` et `super`</h2>
+                            <p class="mb-4">
+                                L'**héritage** permet à une classe (classe enfant) de réutiliser et d'étendre les
+                                propriétés et méthodes d'une autre classe (classe parente).
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li><span class="badge badge-primary">`extends`</span> : Indique qu'une classe hérite
+                                    d'une autre.</li>
+                                <li><span class="badge badge-secondary">`super()`</span> : Appelle le constructeur de la
+                                    classe parente.</li>
+                            </ul>
+                            <pre class="mockup-code text-left">
+                <code>
+      class Animal {
+        constructor(nom) {
+          this.nom = nom;
+        }
+        parler() {
+          return `${this.nom} fait un bruit.`;
+        }
+      }
+
+      class Chien extends Animal {
+        constructor(nom, race) {
+          super(nom); // Appelle le constructeur de Animal
+          this.race = race;
+        }
+        parler() {
+          return `${this.nom} aboie !`; // Redéfinition de la méthode
+        }
+      }
+
+      const monChien = new Chien('Rex', 'Berger Allemand');
+      console.log(monChien.parler()); // 'Rex aboie !'
+                </code>
+              </pre>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="card bg-neutral text-neutral-content shadow-xl">
+                        <div class="card-body">
+                            <h2 class="card-title text-2xl">✅ Bonnes pratiques</h2>
+                            <ul class="list-disc list-inside space-y-2 mt-3">
+                                <li>Utilisez des classes pour modéliser des objets complexes qui ont des états et des
+                                    comportements.</li>
+                                <li>Préférez l'utilisation de `extends` et `super` pour l'héritage plutôt que des
+                                    prototypes.</li>
+                                <li>Utilisez des attributs privés (`#`) pour empêcher l'accès et la modification non
+                                    contrôlés de l'extérieur.</li>
+                                <li>Nommez vos classes avec une majuscule (convention `PascalCase`).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div id="footer-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

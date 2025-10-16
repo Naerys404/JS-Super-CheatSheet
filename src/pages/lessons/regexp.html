@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/src/style.css">
+  <title>Expressions régulières en JavaScript</title>
+</head>
+
+<body class="min-h-screen bg-base-200">
+  <div class="drawer min-h-screen">
+    <input id="drawer-toggle" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-content flex flex-col min-h-screen">
+      
+      <!-- Navbar -->
+      <div class="navbar-container"></div>
+
+      <!-- Main Content -->
+      <main class="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10">
+
+        <!-- Hero -->
+        <section class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">🔍 Expressions régulières en JavaScript</h1>
+          <p class="text-lg text-base-content/70 max-w-2xl mx-auto">
+            Les <strong>RegExp</strong> (expressions régulières) sont des modèles qui permettent de rechercher, 
+            valider ou extraire des chaînes de caractères efficacement.
+          </p>
+        </section>
+
+        <!-- Qu'est-ce qu'une RegExp -->
+        <section class="mb-10">
+          <div class="card bg-base-100 shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">📌 Qu’est-ce qu’une RegExp ?</h2>
+              <p class="mt-2">
+                Une RegExp est définie entre deux <code>/</code>. 
+                Exemple : <code>/abc/</code> correspond à la chaîne "abc".
+              </p>
+              <ul class="list-disc list-inside mt-3">
+                <li><code>.</code> → un caractère quelconque</li>
+                <li><code>\d</code> → un chiffre</li>
+                <li><code>\w</code> → un mot (lettres, chiffres, underscore)</li>
+                <li><code>+</code> → au moins une fois</li>
+                <li><code>*</code> → zéro ou plusieurs fois</li>
+                <li><code>^</code> → début de chaîne</li>
+                <li><code>$</code> → fin de chaîne</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- .test() -->
+        <section class="mb-10">
+          <div class="card bg-primary text-primary-content shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">⚡ Vérifier avec <code>.test()</code></h2>
+              <p>
+                La méthode <code>.test()</code> retourne <code>true</code> ou <code>false</code> 
+                selon si la chaîne correspond au modèle.
+              </p>
+              <pre class="mockup-code text-left mt-4">
+    <code>const regex = /\d+/; // au moins un chiffre
+    console.log(regex.test("Hello"));   // false
+    console.log(regex.test("1234"));    // true</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- .match() -->
+        <section class="mb-10">
+          <div class="card bg-secondary text-secondary-content shadow-lg">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">🔎 Extraire avec <code>.match()</code></h2>
+              <p>
+                La méthode <code>.match()</code> retourne les correspondances trouvées dans une chaîne.
+              </p>
+              <pre class="mockup-code text-left mt-4">
+    <code>const text = "Mon numéro est 42 et mon code est 007.";
+    const regex = /\d+/g; // un ou plusieurs chiffres
+    console.log(text.match(regex)); 
+    // ["42", "007"]</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Exemple interactif -->
+        <section class="mb-10">
+          <div class="card bg-accent text-accent-content shadow-xl">
+            <div class="card-body">
+              <h2 class="card-title text-2xl">🧪 Exemple interactif</h2>
+              <p class="mb-4">Tapez un texte et vérifiez s’il contient un email :</p>
+              <input id="regexInput" type="text" placeholder="ex: contact@mail.com"
+                class="input input-bordered w-full max-w-md text-black mb-3" />
+              <button id="regexBtn" class="btn btn-neutral">Vérifier</button>
+              <p id="regexResult" class="mt-3 font-bold"></p>
+
+              <pre class="mockup-code text-left mt-4">
+    <code>// Vérification d'email simple
+    const emailRegex = /\S+@\S+\.\S+/;
+    const input = document.querySelector("#regexInput");
+    const result = document.querySelector("#regexResult");
+
+    document.querySelector("#regexBtn")
+      .addEventListener("click", () => {
+        if (emailRegex.test(input.value)) {
+          result.textContent = "✅ Email valide";
+        } else {
+          result.textContent = "❌ Email invalide";
+        }
+      });</code>
+              </pre>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer -->
+      <div id="footer-container"></div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+
+  <script type="module">
+    const emailRegex = /\S+@\S+\.\S+/;
+    const input = document.querySelector("#regexInput");
+    const result = document.querySelector("#regexResult");
+    const btn = document.querySelector("#regexBtn");
+
+    btn.addEventListener("click", () => {
+      if (emailRegex.test(input.value)) {
+        result.textContent = "✅ Email valide";
+        result.classList.remove("text-red-500");
+        result.classList.add("text-green-400");
+      } else {
+        result.textContent = "❌ Email invalide";
+        result.classList.remove("text-green-400");
+        result.classList.add("text-red-500");
+      }
+    });
+  </script>
+</body>
+</html>

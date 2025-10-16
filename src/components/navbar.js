@@ -21,6 +21,9 @@
             <li><a href="/src/pages/lessons/dom-attributes.html">DOM : Attributs </a></li>
             <li><a href="/src/pages/lessons/dom-events.html">DOM : Evenements </a></li>
             <li><a href="/src/pages/lessons/web-storage.html">Web Storage</a></li>
+            <li><a href="/src/pages/lessons/api.html">API</a></li>
+            <li><a href="/src/pages/lessons/classes.html">Classes</a></li>
+            <li><a href="/src/pages/lessons/regexp.html">Regex</a></li>
           </ul>
         </details>
       </li>
