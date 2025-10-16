@@ -35,6 +35,7 @@
             <li><a href="/src/pages/exercices/strings.html">Strings</a></li>
             <li><a href="/src/pages/exercices/scope.html">Scope</a></li>
             <li><a href="/src/pages/exercices/regexp.html">Regex</a></li>
+            <li><a href="/src/pages/exercices/imc.html">IMC</a></li>
           </ul>
         </details>
       </li>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strings</title>
+  </head>
+  <body>
+  <div class="navbar-container"></div>
+  <h1 class="text-3xl text-center my-5 font-bold">Exercice Classes IMC</h1>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        class Imc {
+
+            constructor(name, weight, height){
+                this.name = name;
+                this.weight = weight;
+                this.height = height;
+            }
+
+            calcImc(){
+                return (this.weight / (this.height**2)).toFixed(2);
+            }
+
+            display() {
+                let imc = this.calcImc();
+                console.log(`${this.name} (${this.weight}kg, ${this.height}m) a un IMC de : ${imc}`)
+            }
+
+        }
+
+        let list = [
+            new Imc('Dante', 90, 1.88),
+            new Imc('Link', 61, 1.75),
+            new Imc('Sylvanas', 58, 1.78),
+            new Imc('Ellie', 58, 1.66)
+        ];
+
+        list.forEach(person => person.display());
+    
+    </script>
+  </body>
+</html>
