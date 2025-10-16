@@ -1,5 +1,5 @@
   let navbar =`
-    <nav class="navbar bg-base-100 shadow-md">
+    <nav class="navbar bg-base-100 shadow-md z-50">
   <div class="flex-1">
     <a class="btn btn-ghost text-xl" href="/">JS CheatSheet</a>
   </div>
