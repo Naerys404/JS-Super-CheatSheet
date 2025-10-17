@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compte Bancaire</title>
+  </head>
+  <body>
+    <div class="navbar-container"></div>
+    <h1 class="text-3xl text-center my-5 font-bold">Exercice Classes Compte Bancaire</h1>
+
+    <div role="alert" class="alert p-3 m-10 hidden">
+        <span id="alert-msg"></span>
+    </div>
+    <div id="accountManagement" class="flex justify-center gap-3 items-start my-5 py-5 px-10">
+
+        <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">Créditer son compte</div>
+            <form class="collapse-content text-sm" id="credit" method="post" action="/">
+                <fieldset class="fieldset">
+                <legend class="fieldset-legend">Choisissez un compte à créditer</legend>
+                <select class="select" id="creditSelect" name="creditSelect" required>
+                    <option disabled selected>Client</option>
+                </select>
+                <span class="label">Requis</span>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Combien voulez-vous créditer ?</legend>
+                    <input type="number" class="input" id="creditAmount" name="creditAmount" placeholder="x €" required/>
+                    <p class="label">Requis</p>
+                </fieldset>
+                <button type="submit" class="btn btn-accent">Créditer</button>
+            </form>
+        </div>
+
+        <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">Retirer de l'argent</div>
+            <form class="collapse-content text-sm" id="withdrawal" method="post"  action="/">
+                <fieldset class="fieldset">
+                <legend class="fieldset-legend">Choisissez le compte sur lequel retirer de l'argent</legend>
+                <select class="select" name="withdrawalSelect" required>
+                    <option disabled selected>Client</option>
+                </select>
+                <span class="label">Requis</span>
+                </fieldset>
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Combien voulez-vous retirer ?</legend>
+                    <input type="number" class="input" name="withdrawalAmount" placeholder="x €"/>
+                    <p class="label">Requis</p>
+                </fieldset>
+                <button type="submit" class="btn btn-error">Retirer</button>
+            </form>
+        </div>
+  
+       <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold after:start-5 after:end-auto pe-4 ps-12">Transférer de l'argent</div>
+            <form class="collapse-content text-sm" id="transfer" method="post" action="/">
+                <fieldset class="fieldset" id="trans">
+                <legend class="fieldset-legend">Choisissez le compte expéditeur</legend>
+                <select class="select" name="customerExp" required>
+                    <option disabled selected>Client</option>
+                </select>
+                <span class="label">Requis</span>
+                </fieldset>
+                <fieldset class="fieldset" id="dest">
+                <legend class="fieldset-legend">Choisissez le compte destinataire</legend>
+                <select class="select" name="customerDest" required>
+                    <option disabled selected>Client</option>
+                </select>
+                <span class="label">Requis</span>
+                </fieldset>
+
+                <fieldset class="fieldset">
+                    <legend class="fieldset-legend">Combien voulez-vous retirer ?</legend>
+                    <input type="number" class="input" name="transferAmount" placeholder="x €"/>
+                    <p class="label">Requis</p>
+                </fieldset>
+                <button type="submit" class="btn btn-secondary">Transférer</button>
+            </form>
+        </div>
+    </div>
+    <div id="accountsSoldList">
+        <h2 class="p-4 pb-2 text-2xl opacity-70 tracking-wide">Etat des comptes bancaires</h2>
+
+        <ul class="list bg-base-200 rounded-box p-5 flex items-center" id="accountsList"></ul>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/bankAccount.js"></script>
+   
+  </body>
+</html>

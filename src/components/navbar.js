@@ -38,6 +38,7 @@
             <li><a href="/src/pages/exercices/imc.html">IMC</a></li>
             <li><a href="/src/pages/exercices/pme.html">PME</a></li>
             <li><a href="/src/pages/exercices/compteBancaire.html">Compte Bancaire</a></li>
+            <li><a href="/src/pages/exercices/compteBancaire2-UI.html">Compte Bancaire UI</a></li>
           </ul>
         </details>
       </li>
