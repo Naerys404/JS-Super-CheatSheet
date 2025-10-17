@@ -116,6 +116,10 @@ let accountsListDOM = document.getElementById('accountsList');
        transfer.addEventListener('submit', (e)=>{
             e.preventDefault();
 
+            alert.classList.add('hidden');
+            alert.classList.remove("alert-success");
+            alert.classList.remove("alert-error");
+            
             const formData = new FormData(transfer);
 
             let customerExp = formData.get('customerExp');
@@ -126,7 +130,7 @@ let accountsListDOM = document.getElementById('accountsList');
                 accounts[customerExp].transfer(amount, accounts[customerDest]);
                 alert.classList.add('alert-success');
                 alertMsg.innerHTML = `Le compte de ${customerExp} a transféré ${amount} € vers le compte de ${customerDest}`;
-            }  catch(error) {
+            } catch(error) {
                 alert.classList.add('alert-error')
                 alertMsg.innerHTML = error.message;
             } finally {
