@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editeur texte</title>
+  </head>
+  <body>
+  <div class="navbar-container"></div>
+    <h1 class="text-3xl text-center my-5 font-bold">Exercices : Editeur de texte</h1>
+    <div class="bg-base-300 flex rounded m-10 p-10">
+        <form action="" method="post" id="formTextEdit">
+            <textarea id="savedText" name="savedText" class="textarea textarea-neutral mx-5 my-5"></textarea>
+            <button type="submit" class="btn btn-accent mx-5 my-3">Sauvegarder</button>
+        </form>
+        <div id="displayText" class="flex-1 m-5 bg-base-100 rounded p-5">
+        </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+    <script>
+        const displayText = document.querySelector('#displayText');
+
+        //init localStorage
+        if(localStorage.getItem('text') != null){
+            let storageText = localStorage.getItem('text');
+            displayText.innerHTML = `<p>${storageText}</p>`;
+        }
+
+        //focus form
+        const form = document.querySelector('#formTextEdit');
+        form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            let formData = new FormData(form);
+            let text = formData.get('savedText');
+
+            localStorage.setItem('text', text);
+
+            displayText.innerHTML = `<p>${text}</p>`;
+            form.reset();
+        });
+       
+    </script>
+  </body>
+</html>

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "easter-egg-collection": "^1.4.56",
     "vite": "^7.1.7"
   },
   "dependencies": {

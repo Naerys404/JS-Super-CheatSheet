@@ -39,6 +39,9 @@
             <li><a href="/src/pages/exercices/pme.html">PME</a></li>
             <li><a href="/src/pages/exercices/compteBancaire.html">Compte Bancaire</a></li>
             <li><a href="/src/pages/exercices/compteBancaire2-UI.html">Compte Bancaire UI</a></li>
+            <li><a href="/src/pages/exercices/fetchAPI.html">Fetch API</a></li>
+            <li><a href="/src/pages/exercices/editeurTexte.html">Editeur Texte</a></li>
+            <li><a href="/src/pages/exercices/compteurMensonge.html">Compteur Mensonges</a></li>
           </ul>
         </details>
       </li>
