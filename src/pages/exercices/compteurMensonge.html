@@ -9,11 +9,50 @@
   <body>
     <div class="navbar-container"></div>
     <h1 class="text-3xl text-center my-5 font-bold">Exercices : Compteur de mensonges</h1>
+    <div class="flex flex-col bg-base-300 m-5 rounded p-5 gap-3 items-center">
+        <div id="counter" class="text-5xl h-50 flex items-center justify-center">
+        </div>
+        <div>
+            <button type="button" class="btn btn-accent" id="add">Ajouter</button>
+            <button type="button" class="btn btn-primary" id="reset">Reset</button>
+        </div>
+    </div>
   
     <script type="module" src="/src/main.js"></script>
     <script>
+
+       const display = document.querySelector('#counter');
+       const addBtn = document.querySelector("#add");
+       const resetBtn = document.querySelector("#reset");
+       let counter = 0 ;
+
+       reloadDisplay();
+
+        if(localStorage.getItem('counter')){
+            let counterStorage = localStorage.getItem('counter', counter); 
+        }
+      
+       addBtn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            if(localStorage.getItem('counter')){
+               let counterStorage = localStorage.getItem('counter', counter); 
+            }
+            counter += 1;
+            localStorage.setItem('counter', counter);
+            reloadDisplay();
+        })
+
+       resetBtn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            localStorage.setItem('counter', 0);
+            counter = +localStorage.getItem('counter')
+            reloadDisplay();
+        })
        
-       
+       function reloadDisplay(){
+            display.innerHTML = counter; 
+       }
+
     </script>
   </body>
 </html>
